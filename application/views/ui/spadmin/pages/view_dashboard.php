@@ -1,0 +1,170 @@
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3><?=$users?></h3>
+
+                <p>User Registrations</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="<?=base_url()?>spadmin/users" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?=$workspaces?></h3>
+
+                <p>Workspace</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <a href="<?=base_url()?>spadmin/workspaces" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><?=$boards?></h3>
+
+                <p>Board</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-columns"></i>
+              </div>
+              <a href="<?=base_url()?>spadmin/boards" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3><?=$cards?></h3>
+
+                <p>Card</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-chalkboard"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Left col -->
+          <section class="col-lg-7">
+
+              <!-- Calendar -->
+              <div class="card bg-gradient-purple">
+              <div class="card-header border-0">
+
+                <h3 class="card-title">
+                  <i class="far fa-calendar-alt"></i>
+                  Calendar
+                </h3>
+              </div>
+              <div class="card-body pt-0">
+                <div id="calendar" style="width: 100%"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <section class="col-lg-5">
+            <!-- Map card -->
+            <div class="card bg-gradient-primary">
+              <div class="card-header border-0">
+                <h3 class="card-title">
+                  <i class="fas fa-map-marker-alt mr-1"></i>
+                  Visitors
+                </h3>
+              </div>
+              <div class="card-body">
+                <div id="world-map" style="height: 110px; width: 100%;"></div>
+              </div>
+              <div class="card-footer bg-transparent">
+                <div class="row">
+                  <div class="col-4 text-center">
+                    <div id="sparkline-1"></div>
+                    <div class="text-white">Visitors</div>
+                  </div>
+                  <div class="col-4 text-center">
+                    <div id="sparkline-2"></div>
+                    <div class="text-white">Online</div>
+                  </div>
+                  <div class="col-4 text-center">
+                    <div id="sparkline-3"></div>
+                    <div class="text-white">Sales</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- midle -->
+          <section class="col-lg-12">
+
+            <div class="card direct-chat direct-chat-primary">
+              <div class="card-header">
+                <h3 class="card-title">Logsistem</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="direct-chat-messages">
+                  <div class="timeline">
+                    <br>
+                    <?php foreach ($logsistem as $list) {
+                    echo'<div>
+                          <i class="fas fa-user '.$list->bullet.'"></i>
+                          <div class="timeline-item">
+                            <span class="time"><i class="fas fa-clock"></i> '.$list->waktu.'</span>
+                            <h3 class="timeline-header no-border">'.$list->keterangan.'</h3>
+                          </div>
+                        </div>';
+                    }?>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <!-- /.content-wrapper -->
